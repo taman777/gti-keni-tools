@@ -1,0 +1,15 @@
+{
+  "name": "gti/gti-keni-tools",
+  "description": "GTI 賢威-SYN 管理ツール（賢威→SYN PV統合 ほか）",
+  "type": "wordpress-plugin",
+  "license": "GPL-2.0-or-later",
+  "authors": [
+    {
+      "name": "株式会社ジーティーアイ",
+      "homepage": "https://gti.jp"
+    }
+  ],
+  "require": {
+    "yahnis-elsts/plugin-update-checker": "^5.0"
+  }
+}

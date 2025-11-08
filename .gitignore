@@ -1,0 +1,12 @@
+# WordPress / Vendor / OS
+/vendor/
+/node_modules/
+.DS_Store
+
+# Composer lock file (optional)
+composer.lock
+
+# IDE / system files
+.idea/
+.vscode/
+Thumbs.db
