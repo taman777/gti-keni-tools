@@ -1,40 +1,50 @@
 <?php
+
 /**
  * Plugin Name: GTI 賢威-SYN 管理ツール
  * Plugin URI: https://github.com/taman777/gti-keni-tools
  * Description: 賢威テーマからSYNテーマへの移行時にPV統合などを行うGTI専用管理ツール。
- * Version: 1.0.0
+ * Version: 1.1.0
  * Author: 株式会社ジーティーアイ
  * Author URI: https://gti.jp/
  */
 
-if ( ! defined( 'ABSPATH' ) ) exit;
+/**
+ * == Changelog ==
+ * 1.1.0 - 2025-11-09
+ *  - SYNテーマ用 TOC（目次）自動挿入機能を追加
+ *  - 「賢威-SYNツール」配下に「SYN目次設定」メニューを追加
+ *
+ * 1.0.0 - 2025-10-31
+ *  - 初回リリース
+ */
 
-define( 'GTI_KENI_DIR', plugin_dir_path( __FILE__ ) );
-define( 'GTI_KENI_URL', plugin_dir_url( __FILE__ ) );
+
+if (! defined('ABSPATH')) exit;
+
+define('GTI_KENI_DIR', plugin_dir_path(__FILE__));
+define('GTI_KENI_URL', plugin_dir_url(__FILE__));
 
 // コア読込
 require_once GTI_KENI_DIR . 'inc/keni-tools-core.php';
 
 // 各ツールモジュールを自動ロード
-foreach ( glob( GTI_KENI_DIR . 'inc/tools/*.php' ) as $tool_file ) {
-	require_once $tool_file;
+foreach (glob(GTI_KENI_DIR . 'inc/tools/*.php') as $tool_file) {
+    require_once $tool_file;
 }
 
 // =====================================================
 // GitHub連携：plugin-update-checker
 // =====================================================
-if ( file_exists( GTI_KENI_DIR . 'vendor/plugin-update-checker/plugin-update-checker.php' ) ) {
-	require GTI_KENI_DIR . 'vendor/plugin-update-checker/plugin-update-checker.php';
+if (file_exists(GTI_KENI_DIR . 'vendor/yahnis-elsts/plugin-update-checker/plugin-update-checker.php')) {
+    require GTI_KENI_DIR . 'vendor/yahnis-elsts/plugin-update-checker/plugin-update-checker.php';
 
-	use YahnisElsts\PluginUpdateChecker\v5\PucFactory;
+    $updateChecker = \YahnisElsts\PluginUpdateChecker\v5\PucFactory::buildUpdateChecker(
+        'https://github.com/taman777/gti-keni-tools',
+        __FILE__,
+        'gti-keni-tools'
+    );
 
-	$updateChecker = PucFactory::buildUpdateChecker(
-		'https://github.com/taman777/gti-keni-tools', // ← 修正版
-		__FILE__,
-		'gti-keni-tools'
-	);
-
-	// GitHubリリース（タグ）をバージョン情報として使用
-	$updateChecker->getVcsApi()->enableReleaseAssets();
+    // GitHubリリース（タグ）をバージョン情報として使用
+    $updateChecker->getVcsApi()->enableReleaseAssets();
 }

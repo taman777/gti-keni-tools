@@ -16,23 +16,16 @@ function gti_keni_render_pv_merge_page()
     if (! current_user_can('manage_options')) return;
     $is_done = get_option('gti_keni_pv_merge_done');
 
-    if (isset($_POST['gti_pv_merge_run']) && check_admin_referer('gti_pv_merge_action')) {
-        $count = gti_keni_merge_pvc_into_post_views();
-        update_option('gti_keni_pv_merge_done', 1);
-        gti_keni_notice("PV統合を完了しました（対象：{$count}件）", 'success');
-        gti_keni_bar_notice('PV統合が完了しました', 'yes');
-    } elseif (isset($_POST['gti_pv_merge_revert']) && check_admin_referer('gti_pv_merge_action')) {
-        $count = gti_keni_revert_pv_merge();
-        delete_option('gti_keni_pv_merge_done');
-        gti_keni_notice("ロールバックを完了しました（対象：{$count}件）", 'warning');
-        gti_keni_bar_notice('ロールバックが完了しました', 'update');
-    }
-
 ?>
     <div class="wrap">
         <h1>PV統合ツール（賢威→SYN）</h1>
-        <p>旧「pvc_views」を新「post_views_count」に統合します。<br>
-            ※ 一度実行すると元には戻せませんが、「ロールバック」で復元できます。</p>
+        <p>
+            旧「pvc_views」を新「post_views_count」に統合します。<br>
+            ※ 一度実行すると元には戻せませんが、「ロールバック」で復元できます。<br>
+            <strong style="color:#c00;">注意：</strong> この処理により、PV数が一時的に大きく増加するため、<br>
+            ランキング系ウィジェットや人気記事プラグインの順位が変動する可能性があります。<br>
+            あらかじめご了承ください。
+        </p>
 
         <form method="post" onsubmit="return confirm('<?php echo $is_done ? 'ロールバックを行います。よろしいですか？' : '処理を行います。戻せません。よろしいですか？'; ?>');">
             <?php wp_nonce_field('gti_pv_merge_action'); ?>
