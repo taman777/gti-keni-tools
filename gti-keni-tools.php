@@ -4,13 +4,19 @@
  * Plugin Name: GTI 賢威-SYN 管理ツール
  * Plugin URI: https://github.com/taman777/gti-keni-tools
  * Description: 賢威テーマからSYNテーマへの移行時にPV統合や目次自動挿入、アイキャッチ設定移行を行うGTI専用管理ツール。
- * Version: 1.2.0
+ * Version: 1.3.0
  * Author: 株式会社ジーティーアイ
  * Author URI: https://gti.jp/
  */
 
 /**
  * == Changelog ==
+ *
+ * 1.3.0 - 2025-11-22
+ *  - 賢威ショートコード互換機能を追加
+ *  - [keni-linkcard] → [blogcard] 自動変換
+ *  - [cc] 共通コンテンツショートコード対応
+ *  - ON/OFF スイッチ付き管理画面
  *
  * 1.2.0 - 2025-11-16
  *  - 賢威 → SYN のアイキャッチポリシー移行ツールを追加
