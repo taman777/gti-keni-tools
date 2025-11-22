@@ -7,13 +7,13 @@ PV統合、TOC（目次）自動挿入、アイキャッチ表示移行など、
 
 ## 🧰 主な機能
 
-### ✅ PV統合ツール
+### ✅ PV統合ツール【v1.0.0】
 - 賢威テーマで保持していた PV カウントデータを SYN に統合
 - Dry-run（件数確認）＋バッチ処理による安全な移行
 
 ---
 
-### ✅ SYN TOC（目次）自動挿入機能
+### ✅ SYN TOC（目次）自動挿入機能【v1.1.0】
 - 記事本文に `[synx_toc]` が無い場合、自動的に TOC を生成
 - 管理画面「賢威-SYNツール」配下に設定画面を用意
 - 設定可能項目
@@ -52,6 +52,19 @@ PV統合、TOC（目次）自動挿入、アイキャッチ表示移行など、
 
 ---
 
+### ✅ 賢威ショートコード互換機能【v1.3.0】
+賢威テーマで使用していたショートコードを SYN テーマでもそのまま利用可能にします。
+- `[keni-linkcard]` を `[blogcard]` に自動変換
+- `[cc id="123"]` 共通コンテンツショートコード対応
+- functions.php との競合を完全回避
+- 管理画面で機能の ON/OFF 切り替え可能
+- 説明は https://blog.gti.jp/post-75068/ を参照してください
+- この追加機能は上記リンク先で紹介したコードを基にしています
+- この機能を有効にすると functions.php に同様のコードを追加する必要がなくなります
+- 削除しなくても動作しますが、重複を避けるために **functions.php からは削除することを推奨します**
+
+---
+
 ## 💡 使い方
 
 1. プラグインをダウンロードし、`/wp-content/plugins/gti-keni-tools/` にアップロード  
@@ -60,26 +73,36 @@ PV統合、TOC（目次）自動挿入、アイキャッチ表示移行など、
    - PV統合  
    - TOC設定  
    - アイキャッチ移行ツール（Dry-run / 実行）
+   - ショートコード互換（v1.3.0）
 
 ---
 
 ## 🧩 開発構成
 ```text
 gti-keni-tools/
-├── gti-keni-tools.php                 # メインプラグインファイル
+├── gti-keni-tools.php                      # メインプラグインファイル
 ├── inc/
-│   ├── keni-tools-core.php            # 管理メニュー・モジュール基盤
+│   ├── keni-tools-core.php                 # 管理メニュー・モジュール基盤
 │   └── tools/
-│       ├── pv-merge.php          # PV統合モジュール
-│       ├── toc-manager.php            # TOC自動挿入モジュール
-│       └── eyecatch-policy-migrator.php  # アイキャッチ移行ツール（v1.2.0）
+│       ├── pv-merge.php                    # PV統合モジュール
+│       ├── toc-manager.php                 # TOC自動挿入モジュール
+│       ├── eyecatch-policy-migrator.php    # アイキャッチ移行ツール（v1.2.0）
+│       └── keni-shortcode-compat.php       # 賢威ショートコード互換（v1.3.0）
 └── vendor/
-    └── yahnis-elsts/plugin-update-checker/  # GitHub自動更新
+    └── yahnis-elsts/plugin-update-checker/ # GitHub自動更新
 ```
 
 ---
 
 ## 🪄 アップデート履歴（Changelog）
+
+### **1.3.0（2025-11-22）**
+**賢威ショートコード互換機能を追加**
+- `[keni-linkcard]` → `[blogcard]` 自動変換
+- `[cc id="123"]` 共通コンテンツショートコード対応
+- functions.php との競合を完全回避（独自関数名使用）
+- 管理画面で ON/OFF 切り替え可能
+- 賢威テーマのショートコードを SYN テーマでもシームレスに利用可能
 
 ### **1.2.0（2025-11-16）**
 **賢威 → SYN のアイキャッチポリシー移行ツールを追加**
