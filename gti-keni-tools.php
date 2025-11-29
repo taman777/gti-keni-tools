@@ -4,13 +4,19 @@
  * Plugin Name: GTI 賢威-SYN 管理ツール
  * Plugin URI: https://github.com/taman777/gti-keni-tools
  * Description: 賢威テーマからSYNテーマへの移行時にPV統合や目次自動挿入、アイキャッチ設定移行を行うGTI専用管理ツール。
- * Version: 1.3.0
+ * Version: 1.4.0
  * Author: 株式会社ジーティーアイ
  * Author URI: https://gti.jp/
  */
 
 /**
  * == Changelog ==
+ *
+ * 1.4.0 - 2025-11-29
+ *  - 期間別ランキング機能（週間・月間・全期間）を追加
+ *  - ウィジェット「【GTI】期間別ランキング」を追加
+ *  - カテゴリー絞り込み、0 view 除外、デザイン設定機能
+ *  - 管理画面で機能の ON/OFF 切り替え可能
  *
  * 1.3.0 - 2025-11-22
  *  - 賢威ショートコード互換機能を追加
