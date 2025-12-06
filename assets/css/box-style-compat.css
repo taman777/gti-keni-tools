@@ -1,0 +1,117 @@
+/* ============================================================
+   共通スタイル（枠線を主張）
+   .editor-styles-wrapper で囲むことでエディタ内での優先度を上げる
+============================================================ */
+
+.editor-styles-wrapper .box_style,
+.box_style {
+    margin: 2rem 0;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 2px solid rgba(0, 0, 0, 0.12) !important; /* ←濃くする */
+    background: #fff !important;
+    box-shadow: 0 3px 14px rgba(0,0,0,0.08) !important;
+}
+
+.editor-styles-wrapper .box_style .box_inner,
+.box_style .box_inner {
+    padding: 1.6rem 1.8rem;
+}
+
+.editor-styles-wrapper .box_style .box_style_title,
+.box_style .box_style_title {
+    margin-bottom: 0.8rem;
+}
+
+.editor-styles-wrapper .box_style .box_style_title_inner,
+.box_style .box_style_title_inner {
+    display: inline-flex;
+    align-items: center;
+    font-weight: 700;
+    font-size: 0.95rem;
+    padding: 0.25rem 0.9rem;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.85);
+    border: 1px solid rgba(0,0,0,0.08);
+}
+
+/* ============================================================
+   色別（枠線を強めたバージョン）
+============================================================ */
+
+/* BLUE ------------------------------------------------------ */
+.editor-styles-wrapper .box_style_blue,
+.box_style_blue {
+    border-color: #3b82f6 !important; /* ←濃い青 */
+    background: linear-gradient(135deg, #eff6ff, #dbeafe) !important;
+}
+.editor-styles-wrapper .box_style_blue .box_style_title_inner,
+.box_style_blue .box_style_title_inner {
+    color: #1d4ed8;
+}
+
+/* GREEN ----------------------------------------------------- */
+.editor-styles-wrapper .box_style_green,
+.box_style_green {
+    border-color: #22c55e !important;
+    background: linear-gradient(135deg, #ecfdf5, #dcfce7) !important;
+}
+.editor-styles-wrapper .box_style_green .box_style_title_inner,
+.box_style_green .box_style_title_inner {
+    color: #15803d;
+}
+
+/* ORANGE ---------------------------------------------------- */
+.editor-styles-wrapper .box_style_orange,
+.box_style_orange {
+    border-color: #f97316 !important;
+    background: linear-gradient(135deg, #fff7ed, #ffedd5) !important;
+}
+.editor-styles-wrapper .box_style_orange .box_style_title_inner,
+.box_style_orange .box_style_title_inner {
+    color: #c2410c;
+}
+
+/* RED ------------------------------------------------------- */
+.editor-styles-wrapper .box_style_red,
+.box_style_red {
+    border-color: #ef4444 !important;
+    background: linear-gradient(135deg, #fef2f2, #fee2e2) !important;
+}
+.editor-styles-wrapper .box_style_red .box_style_title_inner,
+.box_style_red .box_style_title_inner {
+    color: #b91c1c;
+}
+
+/* PINK ------------------------------------------------------ */
+.editor-styles-wrapper .box_style_pink,
+.box_style_pink {
+    border-color: #ec4899 !important;
+    background: linear-gradient(135deg, #fdf2f8, #fce7f3) !important;
+}
+.editor-styles-wrapper .box_style_pink .box_style_title_inner,
+.box_style_pink .box_style_title_inner {
+    color: #be185d;
+}
+
+/* YELLOW ---------------------------------------------------- */
+.editor-styles-wrapper .box_style_yellow,
+.box_style_yellow {
+    border-color: #eab308 !important;
+    background: linear-gradient(135deg, #fefce8, #fef3c7) !important;
+}
+.editor-styles-wrapper .box_style_yellow .box_style_title_inner,
+.box_style_yellow .box_style_title_inner {
+    color: #a16207;
+}
+
+/* GRAY ------------------------------------------------------ */
+.editor-styles-wrapper .box_style_gray,
+.box_style_gray {
+    border-color: #9ca3af !important;
+    background: linear-gradient(135deg, #f3f4f6, #e5e7eb) !important;
+}
+.editor-styles-wrapper .box_style_gray .box_style_title_inner,
+.box_style_gray .box_style_title_inner {
+    color: #4b5563;
+}

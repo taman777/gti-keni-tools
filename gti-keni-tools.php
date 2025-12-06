@@ -4,13 +4,19 @@
  * Plugin Name: GTI 賢威-SYN 管理ツール
  * Plugin URI: https://github.com/taman777/gti-keni-tools
  * Description: 賢威テーマからSYNテーマへの移行時にPV統合や目次自動挿入、アイキャッチ設定移行を行うGTI専用管理ツール。
- * Version: 1.4.0
+ * Version: 1.5.0
  * Author: 株式会社ジーティーアイ
  * Author URI: https://gti.jp/
  */
 
 /**
  * == Changelog ==
+ *
+ * 1.5.0 - 2025-12-07
+ *  - 賢威ボックス互換レイヤー（SYN用スタイル）を追加
+ *  - 賢威8時代のボックススタイル（.box_style 等）をSYN風に装飾
+ *  - ブロックパターン「GTI 賢威→SYN 互換」を追加
+ *  - CSS読み込みのテーマ上書き対応（子テーマ/親テーマでカスタマイズ可能）
  *
  * 1.4.0 - 2025-11-29
  *  - 期間別ランキング機能（週間・月間・全期間）を追加
@@ -41,22 +47,23 @@
 
 if (! defined('ABSPATH')) exit;
 
-define('GTI_KENI_DIR', plugin_dir_path(__FILE__));
-define('GTI_KENI_URL', plugin_dir_url(__FILE__));
+define('GTI_KENI_TOOLS_DIR', plugin_dir_path(__FILE__));
+define('GTI_KENI_TOOLS_URL', plugin_dir_url(__FILE__));
+define('GTI_KENI_TOOLS_VERSION', '1.5.0');
 
 // コア読込
-require_once GTI_KENI_DIR . 'inc/keni-tools-core.php';
+require_once GTI_KENI_TOOLS_DIR . 'inc/keni-tools-core.php';
 
 // 各ツールモジュールを自動ロード
-foreach (glob(GTI_KENI_DIR . 'inc/tools/*.php') as $tool_file) {
+foreach (glob(GTI_KENI_TOOLS_DIR . 'inc/tools/*.php') as $tool_file) {
     require_once $tool_file;
 }
 
 // =====================================================
 // GitHub連携：plugin-update-checker
 // =====================================================
-if (file_exists(GTI_KENI_DIR . 'vendor/yahnis-elsts/plugin-update-checker/plugin-update-checker.php')) {
-    require GTI_KENI_DIR . 'vendor/yahnis-elsts/plugin-update-checker/plugin-update-checker.php';
+if (file_exists(GTI_KENI_TOOLS_DIR . 'vendor/yahnis-elsts/plugin-update-checker/plugin-update-checker.php')) {
+    require GTI_KENI_TOOLS_DIR . 'vendor/yahnis-elsts/plugin-update-checker/plugin-update-checker.php';
 
     $updateChecker = \YahnisElsts\PluginUpdateChecker\v5\PucFactory::buildUpdateChecker(
         'https://github.com/taman777/gti-keni-tools',
