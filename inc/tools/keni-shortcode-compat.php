@@ -153,4 +153,23 @@ add_action('init', function () {
             add_shortcode('cc', 'gti_keni_get_common_contents');
         }
     }
+
+    // blogcard ショートコードの出力をフィルタリングして target 属性を追加
+    add_filter('do_shortcode_tag', function ($output, $tag, $attr, $m) {
+        if ($tag !== 'blogcard') {
+            return $output;
+        }
+
+        if (is_array($attr) && isset($attr['target']) && $attr['target']) {
+            $target = esc_attr($attr['target']);
+            // 既に target 属性がある場合は置換、なければ追加
+            if (strpos($output, ' target=') !== false) {
+                $output = preg_replace('/ target=["\'](.*?)["\']/', ' target="' . $target . '"', $output, 1);
+            } else {
+                $output = str_replace('<a ', '<a target="' . $target . '" ', $output);
+            }
+        }
+
+        return $output;
+    }, 10, 4);
 }, 999);
