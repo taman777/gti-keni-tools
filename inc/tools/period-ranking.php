@@ -15,6 +15,7 @@ $GLOBALS['gti_keni_tools']['gti-period-ranking'] = [
     'title'    => 'SYN期間別ランキング設定',
     'menu'     => 'SYN期間別ランキング',
     'callback' => 'gti_period_ranking_settings_page',
+    'priority' => 50,
 ];
 
 // --------------------------------------------------

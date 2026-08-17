@@ -13,6 +13,7 @@ $GLOBALS['gti_keni_tools']['gti-keni-shortcode-compat'] = [
     'title' => '賢威ショートコード互換',
     'menu'  => 'ショートコード互換',
     'callback' => 'gti_keni_shortcode_compat_page',
+    'priority' => 60,
 ];
 
 /**

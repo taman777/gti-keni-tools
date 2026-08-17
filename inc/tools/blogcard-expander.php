@@ -11,6 +11,7 @@ $GLOBALS['gti_keni_tools']['gti-blogcard-expander'] = [
     'title' => 'Blogcard拡張',
     'menu'  => 'Blogcard拡張',
     'callback' => 'gti_blogcard_expander_page',
+    'priority' => 20,
 ];
 
 /**

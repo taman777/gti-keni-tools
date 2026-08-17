@@ -13,6 +13,7 @@ $GLOBALS['gti_keni_tools']['gti-keni-toc-manager'] = [
     'title'    => 'SYN目次（TOC）設定',
     'menu'     => 'SYN目次設定',
     'callback' => 'gti_keni_toc_manager_page',
+    'priority' => 80,
 ];
 
 // --------------------------------------------------

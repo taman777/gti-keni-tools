@@ -1,16 +1,21 @@
 <?php
 
 /**
- * Plugin Name: GTI 賢威-SYN 管理ツール
+ * Plugin Name: GTI SYN管理ツール
  * Plugin URI: https://github.com/taman777/gti-keni-tools
  * Description: 賢威テーマからSYNテーマへの移行時にPV統合や目次自動挿入、アイキャッチ設定移行を行うGTI専用管理ツール。
- * Version: 1.6.0
+ * Version: 1.7.0
  * Author: 株式会社ジーティーアイ
  * Author URI: https://gti.jp/
  */
 
 /**
  * == Changelog ==
+ *
+ * 1.7.0 - 2026-08-16
+ *  - プラグイン表示名称を「GTI SYN管理ツール」に変更
+ *  - アップデート配信元を自社サーバーへ移行（APIキー認証に対応）
+ *  - 各種カスタマイズ機能（ランダム投稿、読了時間非表示、ログイン画面等）を移植
  *
  * 1.6.0 - 2026-02-04
  *  - Blogcard拡張機能を追加（target属性サポート）
@@ -56,7 +61,7 @@ if (! defined('ABSPATH')) exit;
 
 define('GTI_KENI_TOOLS_DIR', plugin_dir_path(__FILE__));
 define('GTI_KENI_TOOLS_URL', plugin_dir_url(__FILE__));
-define('GTI_KENI_TOOLS_VERSION', '1.5.0');
+define('GTI_KENI_TOOLS_VERSION', '1.7.0');
 
 // コア読込
 require_once GTI_KENI_TOOLS_DIR . 'inc/keni-tools-core.php';
@@ -67,17 +72,23 @@ foreach (glob(GTI_KENI_TOOLS_DIR . 'inc/tools/*.php') as $tool_file) {
 }
 
 // =====================================================
-// GitHub連携：plugin-update-checker
+// 自社サーバー連携：plugin-update-checker (APIキー認証対応)
 // =====================================================
 if (file_exists(GTI_KENI_TOOLS_DIR . 'vendor/yahnis-elsts/plugin-update-checker/plugin-update-checker.php')) {
     require GTI_KENI_TOOLS_DIR . 'vendor/yahnis-elsts/plugin-update-checker/plugin-update-checker.php';
 
     $updateChecker = \YahnisElsts\PluginUpdateChecker\v5\PucFactory::buildUpdateChecker(
-        'https://github.com/taman777/gti-keni-tools',
+        'https://gti.co.jp/dev/gti-keni-tools/updates/version.php',
         __FILE__,
         'gti-keni-tools'
     );
 
-    // GitHubリリース（タグ）をバージョン情報として使用
-    $updateChecker->getVcsApi()->enableReleaseAssets();
+    // APIキーが存在する場合はクエリパラメータとして付与
+    $apiKey = get_option('gti_syn_tools_api_key');
+    if ($apiKey) {
+        $updateChecker->addFilter('request_info_query_args', function($queryArgs) use ($apiKey) {
+            $queryArgs['api_key'] = $apiKey;
+            return $queryArgs;
+        });
+    }
 }

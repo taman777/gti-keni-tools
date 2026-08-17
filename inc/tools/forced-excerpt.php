@@ -12,6 +12,7 @@ $GLOBALS['gti_keni_tools']['gti-forced-excerpt'] = [
     'title' => '強制抜粋表示（非推奨）',
     'menu'  => '強制抜粋表示（非推奨）',
     'callback' => 'gti_forced_excerpt_page',
+    'priority' => 100,
 ];
 
 /**

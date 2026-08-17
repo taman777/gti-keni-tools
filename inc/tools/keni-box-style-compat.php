@@ -15,6 +15,7 @@ $GLOBALS['gti_keni_tools']['gti_keni_box_style_compat'] = [
     'title'    => '賢威ボックス互換レイヤー',
     'menu'     => '賢威BOXスタイル',
     'callback' => 'gti_keni_box_style_compat_page',
+    'priority' => 40,
 ];
 
 /*--------------------------------------------------------------

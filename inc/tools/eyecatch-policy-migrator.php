@@ -15,6 +15,7 @@ $GLOBALS['gti_keni_tools']['gti_eyecatch_policy_migrator'] = [
     'title'    => 'アイキャッチポリシー移行（賢威 → SYN）',
     'menu'     => 'アイキャッチ移行',
     'callback' => 'gti_eyecatch_policy_migrator_page',
+    'priority' => 70,
 ];
 
 /*--------------------------------------------------------------

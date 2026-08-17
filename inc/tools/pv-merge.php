@@ -9,6 +9,7 @@ $GLOBALS['gti_keni_tools']['gti-pv-merge'] = [
     'title'    => 'PV統合ツール（賢威→SYN）',
     'menu'     => 'PV統合ツール',
     'callback' => 'gti_keni_render_pv_merge_page',
+    'priority' => 90,
 ];
 
 function gti_keni_render_pv_merge_page()

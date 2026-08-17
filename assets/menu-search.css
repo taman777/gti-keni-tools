@@ -1,0 +1,64 @@
+/* ==========================================================================
+   GTI SYN Menu Search Styles
+   ========================================================================== */
+
+@media screen and (min-width: 1080px) {
+	/* グローバルナビの内側コンテナをFlexboxにして横並びに */
+	.ddmenu .ddmenu__inner {
+		display: flex !important;
+		align-items: center !important;
+		justify-content: space-between !important;
+		gap: 20px !important;
+		width: 100% !important;
+	}
+
+	/* メニュー本体を左側に寄せる設定 */
+	.ddmenu__list {
+		flex-grow: 1;
+	}
+
+	.ddmenu-search {
+		flex-shrink: 0;
+		margin-left: auto;
+	}
+
+	/* ヘッダー用に検索フォームをコンパクトにする */
+	.ddmenu-search .search-form {
+		height: 36px !important;
+		max-width: 220px !important;
+		border-radius: 4px !important;
+		box-sizing: border-box !important;
+	}
+
+	.ddmenu-search .search-form label {
+		height: 100% !important;
+		display: block !important;
+	}
+
+	.ddmenu-search .search-form input[type="text"],
+	.ddmenu-search .search-form input {
+		padding: 4px 10px !important;
+		font-size: 13px !important;
+		height: 100% !important;
+		box-sizing: border-box !important;
+	}
+
+	.ddmenu-search .search-form button {
+		padding: 0 12px !important;
+		height: 100% !important;
+		display: flex !important;
+		align-items: center !important;
+		justify-content: center !important;
+		box-sizing: border-box !important;
+	}
+}
+
+/* スマホ用ドロワーメニュー内の検索フォーム調整 */
+.ham-menu__nav .menu-search {
+	padding: 10px 20px;
+	list-style: none;
+}
+.ham-menu__nav .menu-search .search-form {
+	width: 100%;
+	box-sizing: border-box;
+}

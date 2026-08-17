@@ -11,6 +11,7 @@ $GLOBALS['gti_keni_tools']['gti-excerpt-injector'] = [
     'title' => '抜粋表示（JS挿入）',
     'menu'  => '抜粋表示（JS挿入）',
     'callback' => 'gti_excerpt_injector_page',
+    'priority' => 30,
 ];
 
 /**
